@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Product Information </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/forms.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="header-content">
+                        <div class="header-content-inner">
+                            <div class="container">
+                                <form class="well form-horizontal" th:action="@{/list}" th:object="${contacts}" method="">
+
+                                    <fieldset>
+
+                                        <!-- Form Name -->
+                                        <legend align="Center">Product Information:</legend>
+
+                                        <div class="container">
+                                            <div class="bs-callout bs-callout-success">
+                                                <table class="table table-striped">
+                                                    <caption> <h4><b>Contact List Information</b></h4></caption>
+                                                    <thead>
+                                                    <tr>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>E-Mail</th>
+                                                        <th>Phone</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody align="left">
+                                                    <tr th:each="contact : ${contacts}">
+                                                        <td th:text="${contact.firstname}"></td>
+                                                        <td th:text="${contact.lastname}"></td>
+                                                        <td th:text="${contact.email}"></td>
+                                                        <td th:text="${contact.phone}"></td>
+                                                        <td>
+                                                            <a th:href="@{/update/{id}(id=${contact.id})}">Update</a>
+                                                            <a th:href="@{/detail/{id}(id=${contact.id})}">Details</a>
+                                                            <a th:href="@{/delete/{id}(id=${contact.id})}">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</header>
+
+</body>
+
+</html>
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<a href="/addContact">Add a Contact</a><br />
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>E-Mail</th>
+        <th>Phone</th>
+    </tr>
+    <tr th:each="contact : ${contacts}">
+        <td th:text="${contact.firstname}"></td>
+        <td th:text="${contact.lastname}"></td>
+        <td th:text="${contact.email}"></td>
+        <td th:text="${contact.phone}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${contact.id})}">Update</a>
+            <a th:href="@{/detail/{id}(id=${contact.id})}">Details</a>
+            <a th:href="@{/delete/{id}(id=${contact.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>-->
