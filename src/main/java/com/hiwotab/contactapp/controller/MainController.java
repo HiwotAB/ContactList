@@ -23,12 +23,12 @@ public class MainController {
     }
 
     @GetMapping("/addContact")
-    public String courseForm(Model model){
+    public String InputForm(Model model){
         model.addAttribute("contact", new Contact());
         return "addContact";
     }
     @PostMapping("/addContact")
-    public String processForm(@Valid Contact contact, BindingResult result){
+    public String saveForm(@Valid Contact contact, BindingResult result){
         if (result.hasErrors()){
             return "addContact";
         }
